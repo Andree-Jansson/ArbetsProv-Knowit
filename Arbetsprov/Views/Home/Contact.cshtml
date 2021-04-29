@@ -1,0 +1,67 @@
+﻿@model Arbetsprov.Models.EmailFormModel
+@{
+    ViewBag.Title = "Contact";
+}
+
+<!--Jumbutron to display where you're at and some information-->
+<div class="jumbotron" style="margin: 1rem; border-radius: 1rem;">
+    <h1 class="display-4">Contact us</h1>
+    <p class="lead">Fill in this form to contact us and will contact you when we can.</p>
+</div>
+
+<!--Begin the contact form-->
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken();
+
+<div class="container justify-content-center">
+
+    <!--Input for Name-->
+    <div class="form-group">
+        @Html.LabelFor(m => m.FromName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.FromName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.FromEmail)
+        </div>
+    </div>
+
+    <!--Input for Email-->
+    <div class="form-group">
+        @Html.LabelFor(m => m.FromEmail, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.FromEmail)
+        </div>
+    </div>
+
+    <!--Input for subject-->
+    <div class="form-group">
+        @Html.LabelFor(m => m.Subject, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Subject, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Subject)
+        </div>
+    </div>
+
+    <!--Input for Message-->
+    <div class="form-group">
+        @Html.LabelFor(m => m.Message, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Message)
+        </div>
+    </div>
+
+    <!--Button to send mail-->
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-dark" value="Send" />
+        </div>
+    </div>
+
+</div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

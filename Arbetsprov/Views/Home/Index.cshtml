@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<div class="jumbotron" style="margin: 1rem; border-radius: 1rem;">
+    <h1 class="display-4">Welcome to Shoey!</h1>
+    <p class="lead">Shoey is the world leading company in selling shoes with awesome designs, made just for you!</p>    
+</div>
+
+
+<!--Bootstrap row containing all the columns for information boxes-->
+<div class="row justify-content-center">
+    <!--First information box-->
+    <div class="card bg-secondary mb-3" style="max-width: 20rem; margin: 1rem;">        
+        <div class="card-body">
+            <h2 class="card-title">Why choose shoey?</h2>
+            <p class="card-text">
+                Shoey is the worlds largets company in producing and selling shoes.
+            </p>
+            <p class="card-text">Our shoes are produced with you as our customer in mind, designed to look great while lasting long and suitable for all environments.</p>
+            <p class="card-text">Read more about Shoey and discover our history.</p>
+            <!--Action link to swap the view to "About" view-->
+            @Html.ActionLink(HttpUtility.HtmlDecode("About &raquo;"), "About", "Home", new { @class = "btn btn-info" })
+        </div>
+    </div>
+
+    <!--Second information box-->
+    <div class="card bg-secondary mb-3" style="max-width: 20rem; margin: 1rem;">
+        <div class="card-body">
+            <h2 class="card-title">Browse shoes</h2>
+            <p class="card-text">Here you can browse all our different shoes and find a pair that suits you!</p>
+            <p class="card-text">All of our shoes are made with our customer in mind, ensuring that you get extra comfort all while still looking stylish.</p>
+            <p class="card-text">What are you waiting for? Make everyone look your way with our awesome designs!</p>
+            <!--Action link to swap the view to "Store" view-->
+            @Html.ActionLink(HttpUtility.HtmlDecode("Browse &raquo;"), "Store", "Home", new { @class = "btn btn-info" })
+        </div>
+    </div>  
+    
+    <!--Third information box-->
+    <div class="card bg-secondary mb-3" style="max-width: 20rem; margin: 1rem;">
+        <div class="card-body">
+            <h2 class="card-title">90 Day money back guarantee</h2>
+            <p class="card-text">We have an 90 day money back guarantee if the shoes you orderd doesn't fit or if you just want to return it.</p>
+            <p class="card-text">As long as the shoes still are in good condition and not used besides trying them on, you can contact us and ask for a refund.</p>
+            @Html.ActionLink(HttpUtility.HtmlDecode("Contact &raquo;"), "Contact", "Home", new { @class = "btn btn-info" })
+        </div>
+    </div>    
+</div>
